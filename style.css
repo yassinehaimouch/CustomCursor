@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@700&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  color: #fff;
+  font-size: 50px;
+  cursor: none;
+}
+body{
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+section{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+}
+.cursor{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cursor::after, .cursor::before{
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+.cursor::before{
+  background-color: #fff;
+}
+.cursor.click::before{
+  animation: click .5s ease-in-out forwards;
+}
+
+
+@keyframes click{
+  0%{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100%{
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
+}
